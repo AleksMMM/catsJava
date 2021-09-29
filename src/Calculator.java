@@ -5,31 +5,33 @@ public class Calculator {
 
     public static void main(String args[]) {
         Calculator calc = new Calculator();
-        System.out.println(calc.getSum(1, 4));
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("введите числа для операции");
-        int one = Integer.parseInt(scanner.nextLine());
-        int two = Integer.parseInt(scanner.nextLine());
-        Double[] calculators = {calc.getDel(one, two),
+        int one = scanner.nextInt();
+        System.out.println("введите второе число");
+        int two = scanner.nextInt();
+        Double[] calculators = {    calc.getDel(one, two),
                                     calc.getSum(one, two),
                                     calc.getMin(one, two),
                                     calc.getYmn(one, two)
                                 };
 
-        System.out.println(calculators[0]);
+        for (Double in: calculators) {
+            System.out.println(in);
+        }
 
     }
 
-    public double getSum(int param1, int param2) {
+    private double getSum(int param1, int param2) {
         return param1 + param2;
     }
 
-    public double getMin(int param1, int param2) {
+    private double getMin(int param1, int param2) {
         return param1 - param2;
     }
 
-    public double getDel(int param1, int param2) {
+    private double getDel(int param1, int param2) {
         double rsl = 0;
         if (param2 != 0) {
             rsl = (double) (param1 / param2);
@@ -37,7 +39,7 @@ public class Calculator {
         return rsl;
     }
 
-    public double getYmn(int param1, int param2) {
+    private double getYmn(int param1, int param2) {
         return param1 * param2;
     }
 }
